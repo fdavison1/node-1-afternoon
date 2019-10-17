@@ -1,9 +1,14 @@
 const express = require('express')
-const app = express()
-const products = require('./products.json')
+const getProducts = require('./server/getProducts')
 
-app.get('/api/products', (req, res, next) => {
-    res.status(200).send(products)
+const app = express()
+// const products = require('./products.json')
+
+app.get('/api/products', getProducts)
+
+app.get('/api/product/:id', (req, res, next) => {
+    const id = parseInt(req.params.id)
+    const findProduct = 
 })
 
 app.listen(4001, ()=> console.log('listening'))
